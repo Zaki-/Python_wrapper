@@ -1,13 +1,13 @@
 import os, ctypes
 from ctypes import *
 
-_API_DIR = '/home/pi/HROS1-Framework/Linux/project/api_wrapper2/api_wrapper2'
+_API_DIR = '/home/pi/HROS1-Framework/Linux/project/api_wrapper2/api_wrapper2' #where we store the wrapper
 os.chdir(_API_DIR)
 
 _apiwrapper = CDLL(os.path.join(_API_DIR, 'apiwrapper.so'))
 
 Initialize = _apiwrapper.InitializeJS  ##Initializes the robot. Without this function nothing will work.
-Initialize.argtypes = []
+Initialize.argtypes = []      # Make sure it returns true, otherwise it won't work
 Initialize.restype = c_bool
 ServoShutdown = _apiwrapper.ServoShutdownJS
 ServoShutdown.argtypes = []
