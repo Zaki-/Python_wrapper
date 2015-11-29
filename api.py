@@ -6,7 +6,7 @@ os.chdir(_API_DIR)
 
 _apiwrapper = CDLL(os.path.join(_API_DIR, 'apiwrapper.so'))
 
-Initialize = _apiwrapper.InitializeJS
+Initialize = _apiwrapper.InitializeJS  ##Initializes the robot. Without this function nothing will work.
 Initialize.argtypes = []
 Initialize.restype = c_bool
 ServoShutdown = _apiwrapper.ServoShutdownJS
